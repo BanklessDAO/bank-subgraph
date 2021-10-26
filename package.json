@@ -1,0 +1,19 @@
+{
+  "name": "bank-subgraph",
+  "version": "0.1.0",
+  "scripts": {
+    "create": "graph create 0xNSHuman/bank-subgraph --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create 0xNSHuman/bank-subgraph --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy 0xNSHuman/bank-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-local": "graph deploy 0xNSHuman/bank-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.22.1",
+    "@graphprotocol/graph-ts": "^0.22.1"
+  },
+  "dependencies": {
+    "@amxx/graphprotocol-utils": "^1.1.0-alpha.0"
+  }
+}

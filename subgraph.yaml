@@ -1,0 +1,28 @@
+specVersion: 0.0.2
+description: Bankless Token
+repository: https://github.com/0xNSHuman/bank-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Bank
+    network: mainnet
+    source:
+      address: '0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198'
+      abi: Bank
+      startBlock: 12365456
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/mappings/bank.ts
+      entities:
+        - ERC20Contract
+      abis:
+        - name: Bank
+          file: ./abis/Bank.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
