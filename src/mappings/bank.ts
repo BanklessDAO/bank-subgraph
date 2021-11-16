@@ -47,6 +47,9 @@ export function handleTransfer(event: TransferEvent): void {
 
 		ev.from                = from.id
 		ev.fromBalance         = balance.id
+
+		from.lastTransactionTimestamp = ev.timestamp
+		from.save()
 	}
 
 	if (event.params.to.toHex() == constants.ADDRESS_ZERO) {
@@ -63,6 +66,9 @@ export function handleTransfer(event: TransferEvent): void {
 
 		ev.to                  = to.id
 		ev.toBalance           = balance.id
+
+		to.lastTransactionTimestamp = ev.timestamp
+		to.save()
 	}
 	ev.save()
 }

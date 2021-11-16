@@ -6,6 +6,7 @@ type Account @entity {
 	ERC20approvalsSpender: [ERC20Approval!]! @derivedFrom(field: "spender")
 	ERC20transferFromEvent: [ERC20Transfer!]! @derivedFrom(field: "from")
 	ERC20transferToEvent: [ERC20Transfer!]! @derivedFrom(field: "to")
+	lastTransactionTimestamp: BigInt!
 }
 
 type ERC20Contract @entity {
